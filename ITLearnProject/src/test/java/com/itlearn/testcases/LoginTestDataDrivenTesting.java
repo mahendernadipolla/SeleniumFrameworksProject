@@ -30,6 +30,7 @@ public class LoginTestDataDrivenTesting extends BaseTest {
 		{
 			System.out.println("Test Passed");
 			Assert.assertTrue(true);
+			lp.logout();
 		}
 		else
 		{
