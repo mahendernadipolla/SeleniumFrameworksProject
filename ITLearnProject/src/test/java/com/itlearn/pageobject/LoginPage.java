@@ -30,7 +30,10 @@ public class LoginPage extends BaseTest{
 	@FindBy(name="pwd") WebElement pass;
 	
 	@FindBy(name="wp-submit") WebElement loginButton;
+
+	@FindBy(xpath="//*[@id=\"gk-login-toggle\"]/i") WebElement logoutimage;
 	
+	@FindBy(xpath="//*[@id=\"login_drop_panel\"]/div/ul/li[3]/a") WebElement logoutclick;
 
 
 
@@ -42,7 +45,12 @@ public class LoginPage extends BaseTest{
 		loginButton.click();
 		
 	}
-	
+
+	public void logout()
+	{
+		logoutimage.click();
+		logoutclick.click();
+	}
 	public void dashboardportal(String dash) throws IOException
 	{
 		String actualdash= driver.findElement(By.xpath("//*[@id=\"login-list\"]/li[1]/a")).getText();
