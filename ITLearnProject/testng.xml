@@ -10,7 +10,7 @@
       
   <!--      <class name="com.itlearn.testcases.DashboardTestCase"/> -->
         
-        <class name="com.itlearn.testcases.PaymentClass"/>
+        <class name="com.itlearn.testcases.PaymentTestCase"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
