@@ -8,36 +8,42 @@ import org.openqa.selenium.support.PageFactory;
 public class PaymentPage {
 
 	WebDriver driver;
-	public PaymentPage(WebDriver ldriver)
+	//constructor
+	public PaymentPage(WebDriver lDriver)
 	{
-		driver=ldriver;
-		PageFactory.initElements(driver, this);
+		this.driver=lDriver;
+		
+		PageFactory.initElements(driver,this);
 	}
 	
-	@FindBy(xpath="//*[@id=\"learn-press-payment\"]/ul/li/label") WebElement stripebtn;
+	@FindBy(xpath="//*[@id=\"learn-press-payment\"]/ul/li/label") WebElement paystripeclick;
 	
-	@FindBy(id="learn-press-checkout-place-order") WebElement checkoutbtn;
+	@FindBy(xpath="//*[@id=\"learn-press-checkout-place-order\"]") WebElement placeorderbtn;
 	
-	@FindBy(xpath="//*[@id=\\\"card-element\\\"]/div/iframe") WebElement chckoutframe;
+	@FindBy(xpath="//*[@id=\"card-element\"]/div/iframe") WebElement frameelement;
 	
-	@FindBy(name="cardnumber") WebElement cardnumber;
+	@FindBy(name="cardnumber") WebElement cardnum;
 	
 	@FindBy(name="exp-date") WebElement expdate;
 	
 	@FindBy(name="cvc") WebElement cvc;
 	
-	@FindBy(xpath="//*[@id=\\\"payment-button\\\"]") WebElement paymentbtn;
+	@FindBy(id="payment-button") WebElement paybtn;
 	
 	
-	public void paymentProcess(String crdnumber,String exp,String cvcnumber)
+	public void paymentOption(String cardnumber,String exp, String cvcnu)
 	{
-		stripebtn.click();
-		checkoutbtn.click();
+		paystripeclick.click();
+		placeorderbtn.submit();
 		
-		driver.switchTo().frame(chckoutframe);
-		cardnumber.sendKeys(crdnumber);
+		driver.switchTo().frame(frameelement);
+		
+		cardnum.sendKeys(cardnumber);
 		expdate.sendKeys(exp);
-		cvc.sendKeys(cvcnumber);
-		paymentbtn.click();
+		cvc.sendKeys(cvcnu);
+		
+		driver.switchTo().defaultContent();
+	
+		paybtn.click();
 	}
 }
