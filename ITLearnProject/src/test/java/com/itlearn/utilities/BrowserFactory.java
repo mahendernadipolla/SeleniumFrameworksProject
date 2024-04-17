@@ -14,7 +14,7 @@ public class BrowserFactory {
 		
 		if(browserName.equals("Chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver2.exe");
 			ChromeOptions op = new ChromeOptions();
 			op.addArguments("--remote-allow-origins=*");
 	         driver = new ChromeDriver(op);
